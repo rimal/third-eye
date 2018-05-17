@@ -245,6 +245,17 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $('.selectpicker').selectpicker();
+   /* var test = true;*/
+    $("form").submit(function (e) {
+      /*if (test) {
+        e.preventDefault();
+        test = false;
+      }*/
+      $(".preloader").show();
+      /*setTimeout(function () {
+        $("form").submit();
+      }, 10000);*/
+    });
   });
 </script>
 
