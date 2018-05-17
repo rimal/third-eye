@@ -1,14 +1,11 @@
 package com.thirdeye.service;
 
-import com.mathworks.toolbox.javabuilder.MWArray;
-import com.mathworks.toolbox.javabuilder.MWNumericArray;
-import hello_world.HelloWorldMatlab;
 
 public class HelloApplication {
 
   public static String runHelloWorld(String input) {
     String output = null;
-    MWNumericArray n = null;
+ /*   MWNumericArray n = null;
     Object[] result = null;
     HelloWorldMatlab matlabClassInstance = null;
 
@@ -25,7 +22,7 @@ public class HelloApplication {
       MWArray.disposeArray(result);
       matlabClassInstance.dispose();
     }
-
+*/
     return output;
   }
 

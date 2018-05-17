@@ -20,18 +20,6 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.mathworks</groupId>
-      <artifactId>mathworks</artifactId>
-      <scope>system</scope>
-      <systemPath>/Applications/MATLAB/MATLAB_Runtime/v94/toolbox/javabuilder/jar/javabuilder.jar</systemPath>
-      <version>1.local</version>
-    </dependency>
-    <dependency>
-      <groupId>com.helloWorld</groupId>
-      <artifactId>helloWorld</artifactId>
-      <version>1.local</version>
-    </dependency>
   </dependencies>
 
   <build>
@@ -44,27 +32,6 @@
           <source>1.8</source>
           <target>1.8</target>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-install-plugin</artifactId>
-        <version>2.5.2</version>
-        <executions>
-          <execution>
-            <id>inst_1</id>
-            <phase>initialize</phase>
-            <goals>
-              <goal>install-file</goal>
-            </goals>
-            <configuration>
-              <file>libs/hello_world.jar</file>
-              <groupId>com.helloWorld</groupId>
-              <artifactId>helloWorld</artifactId>
-              <version>1.local</version>
-              <packaging>jar</packaging>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
