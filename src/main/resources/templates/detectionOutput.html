@@ -17,12 +17,6 @@
   <!-- animation CSS -->
   <link href="../static/eliteadmin-material/css/animate.css" rel="stylesheet"
         data-th-href="@{/eliteadmin-material/css/animate.css}"/>
-
-  <link rel="stylesheet" href="../static/plugins/bower_components/dropify/dist/css/dropify.min.css"
-        data-th-href="@{/plugins/bower_components/dropify/dist/css/dropify.min.css}"/>
-  <!-- animation CSS -->
-  <link href="../static/eliteadmin-material/css/animate.css" rel="stylesheet"
-        data-th-href="@{/eliteadmin-material/css/animate.css}"/>
   <!-- Custom CSS -->
   <link href="../static/eliteadmin-material/css/style.css" rel="stylesheet"
         data-th-href="@{/eliteadmin-material/css/style.css}"/>
@@ -42,20 +36,6 @@
   <!-- Page Content -->
   <div id="page-wrapper" style="margin: 0;">
     <div class="container-fluid">
-      <!--<div class="row bg-title">
-        <div class="alert alert-success alert-dismissable" data-th-if="${message}" data-th-text="${message}">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </div>
-
-        &lt;!&ndash; .page title &ndash;&gt;
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
-          <h4 class="page-title">Third Eye</h4>
-        </div>
-        &lt;!&ndash; /.page title &ndash;&gt;
-      </div>-->
-
-      <!-- .row -->
       <div class="row">
         <div class="col-md-12">
           <div class="white-box">
@@ -84,19 +64,12 @@
                     <div class="step-info">Sample text</div>
                   </div>
                 </div>
-                <form class="form-material form-horizontal" enctype="multipart/form-data" data-toggle="validator"
-                      data-th-action="@{/upload-video}" method="post">
-                  <div class="form-group">
-                    <!--<label for="input-file-now">Video File</label>-->
-                    <input type="file" id="input-file-now" name="file" class="dropify" accept=".avi,.mp4"
-                           required="required" data-error="Please upload a video"/>
-                    <div class="help-block with-errors"></div>
-                  </div>
 
-                  <button class="btn btn-info waves-effect waves-light" type="submit">
-                    <span class="btn-label"><i class="fa fa-cloud-upload"></i></span>Upload
-                  </button>
-                </form>
+                <div class="col-md-12 p-0 p-t-10 text-center">
+                  <video width="800" controls>
+                    <source src="../static/plugins/videos/SampleVideo_1280x720_1mb.mp4">
+                  </video>
+                </div>
               </div>
             </div>
           </div>
@@ -109,78 +82,18 @@
   </div>
   <!-- /#page-wrapper -->
 </div>
+
 <!-- jQuery -->
 <script src="../static/plugins/bower_components/jquery/dist/jquery.min.js"
         data-th-src="@{/plugins/bower_components/jquery/dist/jquery.min.js}"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="../static/eliteadmin-material/bootstrap/dist/js/bootstrap.min.js"
         data-th-src="@{/eliteadmin-material/bootstrap/dist/js/bootstrap.min.js}"></script>
-<!-- Menu Plugin JavaScript -->
-<script src="../static/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"
-        data-th-src="@{/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js}"></script>
-
 <!--slimscroll JavaScript -->
 <script src="../static/eliteadmin-material/js/jquery.slimscroll.js"
         data-th-src="@{/eliteadmin-material/js/jquery.slimscroll.js}"></script>
-<!--Wave Effects -->
-<script src="../static/eliteadmin-material/js/waves.js" data-th-src="@{/eliteadmin-material/js/waves.js}"></script>
 <!-- Custom Theme JavaScript -->
 <script src="../static/eliteadmin-material/js/custom.min.js"
         data-th-src="@{/eliteadmin-material/js/custom.min.js}"></script>
-
-<!-- Validator Javascript -->
-<script src="../static/eliteadmin-material/js/validator.js"
-        data-th-src="@{/eliteadmin-material/js/validator.js}"></script>
-
-<script src="../static/eliteadmin-material/js/jasny-bootstrap.js"
-        data-th-src="@{/eliteadmin-material/js/jasny-bootstrap.js}"></script>
-<!-- jQuery file upload -->
-<script src="../static/plugins/bower_components/dropify/dist/js/dropify.min.js"
-        data-th-src="@{/plugins/bower_components/dropify/dist/js/dropify.min.js}"></script>
-<script>
-  $(document).ready(function () {
-    // Basic
-    $('.dropify').dropify();
-
-    // Translated
-    $('.dropify-fr').dropify({
-      messages: {
-        default: 'Glissez-déposez un fichier ici ou cliquez',
-        replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
-        remove: 'Supprimer',
-        error: 'Désolé, le fichier trop volumineux'
-      }
-    });
-
-    // Used events
-    var drEvent = $('#input-file-events').dropify();
-
-    drEvent.on('dropify.beforeClear', function (event, element) {
-      return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
-    });
-
-    drEvent.on('dropify.afterClear', function (event, element) {
-      alert('File deleted');
-    });
-
-    drEvent.on('dropify.errors', function (event, element) {
-      console.log('Has Errors');
-    });
-
-    var drDestroy = $('#input-file-to-destroy').dropify();
-    drDestroy = drDestroy.data('dropify')
-    $('#toggleDropify').on('click', function (e) {
-      e.preventDefault();
-      if (drDestroy.isDropified()) {
-        drDestroy.destroy();
-      } else {
-        drDestroy.init();
-      }
-    })
-  });
-</script>
-<!--Style Switcher -->
-<script src="../static/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"
-        data-th-src="@{/plugins/bower_components/styleswitcher/jQuery.style.switcher.js}"></script>
 </body>
 </html>
