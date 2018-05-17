@@ -25,8 +25,8 @@ public class JavaToLinuxApplication {
     //You can set up your work directory
     //probuilder.directory(new File(System.getProperty("user.home")));
     System.out.println(System.getProperty("user.home"));
-    //probuilder.directory(new File(System.getProperty("user.home")));
-    probuilder.directory(new File("/Users/rahul"));
+    probuilder.directory(new File(System.getProperty("user.home")));
+    //probuilder.directory(new File("/Users/rahul"));
     //probuilder.directory(new File("/home/ubuntu/motiondetector/codeferm"));
 
     Process process = probuilder.start();
