@@ -1,10 +1,21 @@
 package com.thirdeye.config;
 
+import com.thirdeye.config.databind.TeObjectMapper;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
+
+  @Bean
+  public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
+    MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+    mappingJackson2HttpMessageConverter.setObjectMapper(new TeObjectMapper());
+
+    return mappingJackson2HttpMessageConverter;
+  }
 
   /*@Bean
   public MultipartResolver multipartResolver() {
