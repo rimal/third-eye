@@ -17,6 +17,7 @@ $(function () {
     rotatable:false,
     scalable:false,
     zoomable:false,
+    autoCropArea:0.4,
 
         aspectRatio: 16 / 9,
         preview: '.img-preview',
