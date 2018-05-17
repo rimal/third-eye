@@ -93,6 +93,21 @@ public class JavaToLinuxApplication {
     return "fail";
   }
 
+  public static String generateFinalVideo() {
+    // ffmpeg -i /tmp/motion-09-51-45.avi -vf 'select=eq(n\,0)' -q:v 1 /tmp/output.jpg
+
+    String[] command = {"python", ""};
+    try {
+      System.out.println("calling shell with command::" + command);
+      return callShell(command);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return "fail";
+  }
+
+
+
   public static void main(String[] args) {
 
     String[] command = {"sh test.sh", "1"};
