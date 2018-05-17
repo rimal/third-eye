@@ -66,8 +66,9 @@
                 </div>
 
                 <div class="col-md-12 p-0 p-t-10 text-center">
-                  <video width="800" controls>
-                    <source src="../static/plugins/videos/SampleVideo_1280x720_1mb.mp4">
+                  <video width="800" controls="controls">
+                    <source src="../static/plugins/videos/SampleVideo_1280x720_1mb.mp4"
+                            data-th-src="@{{outputVideo}(outputVideo=${outputVideo})}"/>
                   </video>
                 </div>
               </div>

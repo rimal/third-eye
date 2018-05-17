@@ -74,6 +74,6 @@ public class WelcomeController {
     redirectAttributes.addFlashAttribute("message",
         "You successfully uploaded " + multipartFile.getOriginalFilename() + "!");
 
-    return "redirect:/analytics-config";
+    return "redirect:/analysis/config";
   }
 }
