@@ -13,7 +13,7 @@ public class RunShellApplication {
   public static void main(String[] args) {
     System.out.println("hello");
     try {
-      System.out.println(Runtime.getRuntime().exec("ls -l"));
+      //System.out.println(Runtime.getRuntime().exec("ls -l"));
 
       /*ProcessBuilder pb = new ProcessBuilder("myshellScript.sh", "myArg1", "myArg2");
       Map<String, String> env = pb.environment();
@@ -30,8 +30,8 @@ public class RunShellApplication {
         builder.command("cmd.exe", "/c", "dir");
       } else {
         //builder.command("perl", "test.pl");
-        builder.command("sh", "test.sh");
-        //builder.command("python", "test.py", "rahul");
+        //builder.command("sh", "test.sh");
+        builder.command("python", "test.py", "rahul");
 
       }
       builder.directory(new File(System.getProperty("user.home")));
@@ -40,7 +40,7 @@ public class RunShellApplication {
       StreamGobbler streamGobbler = new StreamGobbler(process.getInputStream(), System.out::println);
       Executors.newSingleThreadExecutor().submit(streamGobbler);
       int exitCode = process.waitFor();
-      assert exitCode == 0;
+      //assert exitCode == 0;
 
 
     } catch (IOException e) {

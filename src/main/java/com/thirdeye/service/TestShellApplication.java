@@ -1,0 +1,91 @@
+package com.thirdeye.service;
+
+import org.apache.commons.lang.StringUtils;
+
+import java.io.*;
+import java.util.Arrays;
+
+public class TestShellApplication {
+
+  public static String callShell(String[] args) throws IOException {
+
+    if (args == null) {
+      return "No arguments passed";
+    }
+    if (args.length < 1) {
+      return "No arguments passed";
+    }
+    for (int i = 0; i < args.length; i++) {
+      System.out.println(args[i]);
+    }
+    //String[] command = {"sh", "t1.sh"};
+    String[] command = {"python", "test.py"};
+    ProcessBuilder probuilder = new ProcessBuilder(args);
+    //You can set up your work directory
+    //probuilder.directory(new File(System.getProperty("user.home")));
+    System.out.println(System.getProperty("user.home"));
+    //probuilder.directory(new File(System.getProperty("user.home")));
+    probuilder.directory(new File("/Users/rahul"));
+    //probuilder.directory(new File("/home/ubuntu/motiondetector/codeferm"));
+
+    Process process = probuilder.start();
+
+    //Read out dir output
+    InputStream is = process.getInputStream();
+    InputStreamReader isr = new InputStreamReader(is);
+    BufferedReader br = new BufferedReader(isr);
+    String line;
+    System.out.printf("Output of running %s is:\n",
+        Arrays.toString(args));
+    while ((line = br.readLine()) != null) {
+      System.out.println(line);
+    }
+
+    //Wait to get exit value
+    try {
+      int exitValue = process.waitFor();
+      System.out.println("\n\nExit Value is " + exitValue);
+      if (exitValue == 0) {
+        return "success";
+      } else {
+        return "fail";
+      }
+
+    } catch (InterruptedException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    return "fail";
+  }
+
+  public static String generateImageFromVideo(String videoPath, String outputImagePath) {
+    // ffmpeg -i /tmp/motion-09-51-45.avi -vf 'select=eq(n\,0)' -q:v 1 /tmp/output.jpg
+    if (StringUtils.isBlank(outputImagePath)) {
+      outputImagePath = "/tmp/initFrame.jpg";
+    }
+    if (StringUtils.isBlank(videoPath)) {
+      videoPath = "/tmp/motion-09-51-45.avi";
+    }
+    String[] command = {"sh", "generateImageFromVideo.sh", videoPath, outputImagePath};
+    try {
+      System.out.println("calling shell with command::" + command);
+      return callShell(command);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return "fail";
+  }
+
+  public static void main(String[] args) {
+
+    String[] command = {"sh test.sh", "1"};
+    try {
+      //System.out.println(callShell(command));
+      System.out.println(generateImageFromVideo(null, null));
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+  }
+
+}
