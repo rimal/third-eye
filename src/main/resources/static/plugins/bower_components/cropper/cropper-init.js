@@ -13,6 +13,11 @@ $(function () {
   var $dataScaleX = $('#dataScaleX');
   var $dataScaleY = $('#dataScaleY');
   var options = {
+    viewMode:3,
+    rotatable:false,
+    scalable:false,
+    zoomable:false,
+
         aspectRatio: 16 / 9,
         preview: '.img-preview',
         crop: function (e) {
