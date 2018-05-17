@@ -20,14 +20,15 @@ public class JavaToLinuxApplication {
       System.out.println(args[i]);
     }
     //String[] command = {"sh", "t1.sh"};
-    String[] command = {"python", "test.py"};
+    String[] command = {"python", "test_t.py", "rahul_t"};
     ProcessBuilder probuilder = new ProcessBuilder(args);
     //You can set up your work directory
     //probuilder.directory(new File(System.getProperty("user.home")));
-    System.out.println(System.getProperty("user.home"));
-    probuilder.directory(new File(System.getProperty("user.home")));
+    //System.out.println(System.getProperty("user.home"));
+    //probuilder.directory(new File(System.getProperty("user.home")));
     //probuilder.directory(new File("/Users/rahul"));
     //probuilder.directory(new File("/home/ubuntu/motiondetector/codeferm"));
+    probuilder.directory(new File("/Users/rahul/project/hackathon/motiondetector/codeferm"));
 
     Process process = probuilder.start();
 
@@ -84,8 +85,8 @@ public class JavaToLinuxApplication {
     }
 
     String[] command = {"python", "img_try.py", x, y, width, height};
+    //String[] command = {"python", "test_t.py", "rahul_t"};
     try {
-      System.out.println("calling shell with command::" + command);
       return callShell(command);
     } catch (IOException e) {
       e.printStackTrace();
