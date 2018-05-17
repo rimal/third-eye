@@ -3,6 +3,7 @@ package com.thirdeye.controller;
 import com.thirdeye.constants.PropertyKey;
 import com.thirdeye.dto.AnalysisConfigDataDTO;
 import com.thirdeye.exception.TeNotFoundException;
+import com.thirdeye.service.JavaToLinuxApplication;
 import com.thirdeye.util.json.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +39,14 @@ public class AnalyticsConfigController {
   @RequestMapping(value = "/data", method = RequestMethod.POST)
   public String submitConfigData(AnalysisConfigDataDTO analysisConfigDataDTO, RedirectAttributes redirectAttributes) {
     logger.info("Analysis config data: " + JsonUtils.getJson(analysisConfigDataDTO));
+
+    //Generate Mask
+    String output = JavaToLinuxApplication.generateMask(analysisConfigDataDTO.getX().toString(), analysisConfigDataDTO.getY().toString(), analysisConfigDataDTO.getWidth().toString(), analysisConfigDataDTO.getHeight().toString());
+    logger.info("Mask generation: " + output);
+
+    //Call video processing
+    logger.info("video processing called");
+
 
     redirectAttributes.addFlashAttribute("message", "Configuration data submitted!");
     return "redirect:/";
