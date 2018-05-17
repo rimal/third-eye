@@ -1,7 +1,6 @@
 package com.thirdeye.service;
 
 import org.apache.commons.lang3.StringUtils;
-import org.omg.PortableInterceptor.SUCCESSFUL;
 
 import java.io.*;
 import java.util.Arrays;
@@ -25,9 +24,9 @@ public class JavaToLinuxApplication {
     //You can set up your work directory
     //probuilder.directory(new File(System.getProperty("user.home")));
     //System.out.println(System.getProperty("user.home"));
-    //probuilder.directory(new File(System.getProperty("user.home")));
+//    probuilder.directory(new File(System.getProperty("user.home")));
     //probuilder.directory(new File("/Users/rahul"));
-    //probuilder.directory(new File("/home/ubuntu/motiondetector/codeferm"));
+    //probuilder.directory(new File("/home/ec2-user/motiondetector/codefer"));
     probuilder.directory(new File("/Users/rahul/project/hackathon/motiondetector/codeferm"));
 
     Process process = probuilder.start();
@@ -97,7 +96,8 @@ public class JavaToLinuxApplication {
   public static String generateFinalVideo() {
     // ffmpeg -i /tmp/motion-09-51-45.avi -vf 'select=eq(n\,0)' -q:v 1 /tmp/output.jpg
 
-    String[] command = {"python", "videoloop.py"};
+    //String[] command = {"python", "videoloop.py"};
+    String[] command = {"sh", "videoloop.sh"};
     try {
       System.out.println("calling shell with command::" + command);
       return callShell(command);
@@ -106,7 +106,6 @@ public class JavaToLinuxApplication {
     }
     return "fail";
   }
-
 
 
   public static void main(String[] args) {

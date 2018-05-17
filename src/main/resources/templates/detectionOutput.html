@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <!-- Favicon icon -->
+  <!--<link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">-->
+  <title>Third Eye</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../static/eliteadmin-material/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"
+        data-th-href="@{/eliteadmin-material/bootstrap/dist/css/bootstrap.min.css}"/>
+  <!-- animation CSS -->
+  <link href="../static/eliteadmin-material/css/animate.css" rel="stylesheet"
+        data-th-href="@{/eliteadmin-material/css/animate.css}"/>
+  <!-- Custom CSS -->
+  <link href="../static/eliteadmin-material/css/style.css" rel="stylesheet"
+        data-th-href="@{/eliteadmin-material/css/style.css}"/>
+  <!-- color CSS -->
+  <link href="../static/eliteadmin-material/css/colors/default.css" id="theme" rel="stylesheet"
+        data-th-href="@{/eliteadmin-material/css/colors/default.css}"/>
+
+</head>
+<body>
+<!-- Preloader -->
+<div class="preloader">
+  <svg class="circular" viewBox="25 25 50 50">
+    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+  </svg>
+</div>
+<div id="wrapper">
+  <!-- Page Content -->
+  <div id="page-wrapper" style="margin: 0;">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="white-box">
+            <div class="row">
+              <div class="alert alert-success alert-dismissable" data-th-if="${message}" data-th-text="${message}">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              </div>
+
+              <div class="col-md-12">
+                <!--<h3 class="box-title">Step</h3>-->
+                <div class="row thin-steps">
+                  <div class="col-md-4 column-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Upload Video File</div>
+                    <div class="step-info"> AVI, MP4</div>
+                  </div>
+                  <div class="col-md-4 column-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title"> Area of interest!</div>
+                    <div class="step-info">Sample text</div>
+                  </div>
+                  <div class="col-md-4 column-step active">
+                    <div class="step-number">3</div>
+                    <div class="step-title">GET DELIVERY</div>
+                    <div class="step-info">Sample text</div>
+                  </div>
+                </div>
+
+                <div class="col-md-12 p-0 p-t-10 text-center">
+                  <video width="800" controls="controls">
+                    <source src="../static/plugins/videos/SampleVideo_1280x720_1mb.mp4"
+                            data-th-src="@{{outputVideo}(outputVideo=${outputVideo})}"/>
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+    <!--<th:block data-th-include="thymeleaf/fragments/_navigation :: footer"></th:block>-->
+  </div>
+  <!-- /#page-wrapper -->
+</div>
+
+<!-- jQuery -->
+<script src="../static/plugins/bower_components/jquery/dist/jquery.min.js"
+        data-th-src="@{/plugins/bower_components/jquery/dist/jquery.min.js}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../static/eliteadmin-material/bootstrap/dist/js/bootstrap.min.js"
+        data-th-src="@{/eliteadmin-material/bootstrap/dist/js/bootstrap.min.js}"></script>
+<!--slimscroll JavaScript -->
+<script src="../static/eliteadmin-material/js/jquery.slimscroll.js"
+        data-th-src="@{/eliteadmin-material/js/jquery.slimscroll.js}"></script>
+<!-- Custom Theme JavaScript -->
+<script src="../static/eliteadmin-material/js/custom.min.js"
+        data-th-src="@{/eliteadmin-material/js/custom.min.js}"></script>
+</body>
+</html>

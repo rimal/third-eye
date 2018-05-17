@@ -21,18 +21,18 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 @Controller
-@RequestMapping("/analytics-config")
-public class AnalyticsConfigController {
+@RequestMapping("/analysis")
+public class AnalysisController {
 
-  private static final Logger logger = LoggerFactory.getLogger(AnalyticsConfigController.class);
+  private static final Logger logger = LoggerFactory.getLogger(AnalysisController.class);
 
   @Autowired
   private Environment env;
 
-  @RequestMapping("")
-  public String analyticsConfig(Model model) {
+  @RequestMapping("/config")
+  public String analysisConfig(Model model) {
     getFirstFrameFileFromDisk();
-    model.addAttribute("firstFrameFile", "/analytics-config/first-frame-file");
+    model.addAttribute("firstFrameFile", "/analysis/first-frame-file");
     return "analyticsConfig";
   }
 
@@ -48,15 +48,34 @@ public class AnalyticsConfigController {
     String videoOutput = JavaToLinuxApplication.generateFinalVideo();
     logger.info("video processing called");
 
-
-    redirectAttributes.addFlashAttribute("message", "Configuration data submitted!");
-    return "redirect:/";
+    redirectAttributes.addFlashAttribute("message", "Video processed!");
+    return "redirect:/analysis/output";
   }
 
   @RequestMapping(value = "/first-frame-file")
   @ResponseBody
   public byte[] getFirstFrameFile() throws IOException {
     return Files.readAllBytes(getFirstFrameFileFromDisk().toPath());
+  }
+
+  @RequestMapping("/output")
+  public String analysisOutput(Model model) {
+    model.addAttribute("outputVideo", "/analysis/output-video");
+    return "detectionOutput";
+  }
+
+  @RequestMapping(value = "/output-video")
+  @ResponseBody
+  public byte[] getOutputVideo() throws IOException {
+    String outputVideoFilePath = env.getProperty(PropertyKey.OUTPUT_VIDEO_FILE);
+    logger.info("Getting output video from: " + outputVideoFilePath);
+
+    File file = new File(outputVideoFilePath);
+    if (!file.exists()) {
+      throw new TeNotFoundException("Could not find the output video file");
+    }
+
+    return Files.readAllBytes(file.toPath());
   }
 
   private File getFirstFrameFileFromDisk() {

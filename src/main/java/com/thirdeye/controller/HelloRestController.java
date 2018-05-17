@@ -24,7 +24,7 @@ public class HelloRestController {
 
   @RequestMapping("/hello")
   public String hello() {
-    return "Hello!  2334";
+    return "Hello! aaa";
   }
 
   @RequestMapping("/runCommand")
@@ -46,6 +46,11 @@ public class HelloRestController {
   public String generateImageFromVideo(@RequestParam(value = "videoPath", required = false) String videoPath,
                                        @RequestParam(value = "outputImagePath", required = false) String outputImagePath) {
     return JavaToLinuxApplication.generateImageFromVideo(null, null);
+  }
+
+  @RequestMapping("/runCode")
+  public String runCode() {
+    return JavaToLinuxApplication.generateFinalVideo();
   }
 
   public static void main(String[] args) {
