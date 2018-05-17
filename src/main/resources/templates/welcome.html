@@ -42,46 +42,44 @@
   <!-- Page Content -->
   <div id="page-wrapper" style="margin: 0;">
     <div class="container-fluid">
-      <div class="row bg-title">
+      <!--<div class="row bg-title">
         <div class="alert alert-success alert-dismissable" data-th-if="${message}" data-th-text="${message}">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         </div>
 
-        <!-- .page title -->
+        &lt;!&ndash; .page title &ndash;&gt;
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
           <h4 class="page-title">Third Eye</h4>
         </div>
-        <!-- /.page title -->
-      </div>
+        &lt;!&ndash; /.page title &ndash;&gt;
+      </div>-->
+
       <!-- .row -->
       <div class="row">
         <div class="col-md-12">
-          <!--<div class="white-box">
-            <div class="row">
-              <div class="col-md-12">
-                Page Upper Content Section (optional)
-              </div>
-            </div>
-          </div>-->
-
           <div class="white-box">
             <div class="row">
+              <div class="alert alert-success alert-dismissable" data-th-if="${message}" data-th-text="${message}">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              </div>
+
               <div class="col-md-12">
                 <!--<h3 class="box-title">Step</h3>-->
                 <div class="row thin-steps">
                   <div class="col-md-4 column-step active">
                     <div class="step-number">1</div>
-                    <div class="step-title">Video File</div>
-                    <div class="step-info"> AVI, FLV, WMV, MP4, MOV.</div>
+                    <div class="step-title">Upload Video File</div>
+                    <div class="step-info"> AVI, MP4</div>
                   </div>
                   <div class="col-md-4 column-step">
-                    <div class="step-number">2</div>
+                    <div class="step-number not-done">2</div>
                     <div class="step-title"> Area of interest!</div>
                     <div class="step-info">Sample text</div>
                   </div>
                   <div class="col-md-4 column-step">
-                    <div class="step-number">3</div>
+                    <div class="step-number not-done">3</div>
                     <div class="step-title">GET DELIVERY</div>
                     <div class="step-info">Sample text</div>
                   </div>
@@ -90,7 +88,7 @@
                       data-th-action="@{/upload-video}" method="post">
                   <div class="form-group">
                     <!--<label for="input-file-now">Video File</label>-->
-                    <input type="file" id="input-file-now" name="file" class="dropify"
+                    <input type="file" id="input-file-now" name="file" class="dropify" accept=".avi,.mp4"
                            required="required" data-error="Please upload a video"/>
                     <div class="help-block with-errors"></div>
                   </div>

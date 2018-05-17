@@ -1,7 +1,6 @@
 package com.thirdeye.service;
 
-import org.apache.commons.lang.StringUtils;
-import org.omg.PortableInterceptor.SUCCESSFUL;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
 import java.util.Arrays;
@@ -25,7 +24,7 @@ public class JavaToLinuxApplication {
     //You can set up your work directory
     //probuilder.directory(new File(System.getProperty("user.home")));
     //System.out.println(System.getProperty("user.home"));
-    //probuilder.directory(new File(System.getProperty("user.home")));
+//    probuilder.directory(new File(System.getProperty("user.home")));
     //probuilder.directory(new File("/Users/rahul"));
     //probuilder.directory(new File("/home/ec2-user/motiondetector/codefer"));
     probuilder.directory(new File("/Users/rahul/project/hackathon/motiondetector/codeferm"));
@@ -107,7 +106,6 @@ public class JavaToLinuxApplication {
     }
     return "fail";
   }
-
 
 
   public static void main(String[] args) {

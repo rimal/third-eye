@@ -1,7 +1,9 @@
 package com.thirdeye.controller;
 
 import com.thirdeye.constants.PropertyKey;
+import com.thirdeye.constants.VideoProcessingConstants;
 import com.thirdeye.service.JavaToLinuxApplication;
+import com.thirdeye.util.TeStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
 
 @Controller
 public class WelcomeController {
@@ -46,6 +52,21 @@ public class WelcomeController {
     multipartFile.transferTo(file);
     logger.info("File: " + multipartFile.getOriginalFilename() + " saved to disk");
 
+    //write updated motion detector ini to disk
+    String motionDetectorIniFilePath = env.getProperty(PropertyKey.MOTION_DETECTOR_INI_FILE);
+    File motionDetectorIniFile = new File(motionDetectorIniFilePath);
+    boolean parentPathForMotionDetectorIniFilePathCreated = motionDetectorIniFile.getParentFile().mkdirs();
+    if (parentPathForMotionDetectorIniFilePathCreated) {
+      logger.info("Parent path for motion detector ini file created automatically");
+    }
+
+    Path path = Paths.get(motionDetectorIniFilePath);
+    byte[] strToBytes = TeStringUtils.processStringTemplate(VideoProcessingConstants.MOTION_DETECTOR_INI_TEMPLATE, new HashMap<String, Object>() {{
+      put("url", file.getAbsolutePath());
+    }}).getBytes();
+    Files.write(path, strToBytes);
+    logger.info("Motion detector iniFile: " + motionDetectorIniFilePath + " saved to disk");
+
     //get first frame from video
     String output = JavaToLinuxApplication.generateImageFromVideo(file.getAbsolutePath(), env.getProperty(PropertyKey.VIDEO_FIRST_FRAME_FILE));
     logger.info("First image generation: " + output);
@@ -53,6 +74,6 @@ public class WelcomeController {
     redirectAttributes.addFlashAttribute("message",
         "You successfully uploaded " + multipartFile.getOriginalFilename() + "!");
 
-    return "redirect:/analytics-config";
+    return "redirect:/analysis/config";
   }
 }
