@@ -1,7 +1,7 @@
 package com.thirdeye.controller;
 
 import com.thirdeye.constants.PropertyKey;
-import com.thirdeye.service.TestShellApplication;
+import com.thirdeye.service.JavaToLinuxApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +47,7 @@ public class WelcomeController {
     logger.info("File: " + multipartFile.getOriginalFilename() + " saved to disk");
 
     //get first frame from video
-    String output = TestShellApplication.generateImageFromVideo(file.getAbsolutePath(), env.getProperty(PropertyKey.VIDEO_FIRST_FRAME_FILE));
+    String output = JavaToLinuxApplication.generateImageFromVideo(file.getAbsolutePath(), env.getProperty(PropertyKey.VIDEO_FIRST_FRAME_FILE));
     logger.info("First image generation: " + output);
 
     redirectAttributes.addFlashAttribute("message",

@@ -1,11 +1,12 @@
 package com.thirdeye.service;
 
 import org.apache.commons.lang.StringUtils;
+import org.omg.PortableInterceptor.SUCCESSFUL;
 
 import java.io.*;
 import java.util.Arrays;
 
-public class TestShellApplication {
+public class JavaToLinuxApplication {
 
   public static String callShell(String[] args) throws IOException {
 
@@ -76,12 +77,29 @@ public class TestShellApplication {
     return "fail";
   }
 
+  public static String generateMask(String x, String y, String width, String height) {
+    // ffmpeg -i /tmp/motion-09-51-45.avi -vf 'select=eq(n\,0)' -q:v 1 /tmp/output.jpg
+    if (StringUtils.isBlank(x) || StringUtils.isBlank(y) || StringUtils.isBlank(width) || StringUtils.isBlank(height)) {
+      return "one of the parameters is blank";
+    }
+
+    String[] command = {"python", "img_try.py", x, y, width, height};
+    try {
+      System.out.println("calling shell with command::" + command);
+      return callShell(command);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return "fail";
+  }
+
   public static void main(String[] args) {
 
     String[] command = {"sh test.sh", "1"};
     try {
       //System.out.println(callShell(command));
-      System.out.println(generateImageFromVideo(null, null));
+      //System.out.println(generateImageFromVideo(null, null));
+      System.out.println(generateMask("20", "30", "200", "200"));
     } catch (Exception e) {
       e.printStackTrace();
     }

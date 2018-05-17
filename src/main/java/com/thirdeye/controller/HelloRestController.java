@@ -1,7 +1,7 @@
 package com.thirdeye.controller;
 
 import com.thirdeye.service.HelloApplication;
-import com.thirdeye.service.TestShellApplication;
+import com.thirdeye.service.JavaToLinuxApplication;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +34,7 @@ public class HelloRestController {
       return "Empty Command not acceptable";
     }
     try {
-      TestShellApplication.callShell(command.split(" "));
+      JavaToLinuxApplication.callShell(command.split(" "));
 
     } catch (IOException e) {
       e.printStackTrace();
@@ -43,18 +43,37 @@ public class HelloRestController {
   }
 
   @RequestMapping("/generateImageFromVideo")
-  public String generateImageFromVideo(@RequestParam(value="videoPath", required = false) String videoPath,
-                                       @RequestParam(value = "outputImagePath", required = false) String outputImagePath){
-    return TestShellApplication.generateImageFromVideo(null, null);
+  public String generateImageFromVideo(@RequestParam(value = "videoPath", required = false) String videoPath,
+                                       @RequestParam(value = "outputImagePath", required = false) String outputImagePath) {
+    return JavaToLinuxApplication.generateImageFromVideo(null, null);
   }
 
   public static void main(String[] args) {
     String[] command = "sh test.sh".split(" ");
     try {
-      System.out.println(TestShellApplication.callShell(command));
+      System.out.println(JavaToLinuxApplication.callShell(command));
 
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
+
+ /* @RequestMapping("/generateImageFromVideo")
+  public String generateMask(@RequestParam(value = "x", required = false) String x,
+                             @RequestParam(value = "y", required = false) String y,
+                             @RequestParam(value = "width", required = false) String ) {
+    return JavaToLinuxApplication.generateImageFromVideo(null, null);
+  }
+
+  public static void main(String[] args) {
+    String[] command = "sh test.sh".split(" ");
+    try {
+      System.out.println(JavaToLinuxApplication.callShell(command));
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }*/
+
+
 }
