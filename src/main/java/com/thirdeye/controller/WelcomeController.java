@@ -1,7 +1,11 @@
 package com.thirdeye.controller;
 
+import com.thirdeye.constants.PropertyKey;
+import com.thirdeye.service.TestShellApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +20,9 @@ import java.io.IOException;
 public class WelcomeController {
 
   private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
+
+  @Autowired
+  private Environment env;
 
   @RequestMapping("/")
   public String welcome() {
@@ -35,13 +42,17 @@ public class WelcomeController {
       logger.info("File: " + file.getAbsolutePath() + " already exists");
     }
 
+    //transfer file to disk
     multipartFile.transferTo(file);
-
     logger.info("File: " + multipartFile.getOriginalFilename() + " saved to disk");
+
+    //get first frame from video
+    String output = TestShellApplication.generateImageFromVideo(file.getAbsolutePath(), env.getProperty(PropertyKey.VIDEO_FIRST_FRAME_FILE));
+    logger.info("First image generation: " + output);
 
     redirectAttributes.addFlashAttribute("message",
         "You successfully uploaded " + multipartFile.getOriginalFilename() + "!");
 
-    return "redirect:/";
+    return "redirect:/analytics-config";
   }
 }
