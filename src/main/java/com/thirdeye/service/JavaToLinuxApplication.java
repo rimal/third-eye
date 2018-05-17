@@ -96,7 +96,7 @@ public class JavaToLinuxApplication {
   public static String generateFinalVideo() {
     // ffmpeg -i /tmp/motion-09-51-45.avi -vf 'select=eq(n\,0)' -q:v 1 /tmp/output.jpg
 
-    String[] command = {"python", ""};
+    String[] command = {"python", "videoloop.py"};
     try {
       System.out.println("calling shell with command::" + command);
       return callShell(command);
