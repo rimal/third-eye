@@ -6,6 +6,8 @@ public class AnalysisConfigDataDTO {
   private Integer y;
   private Integer width;
   private Integer height;
+  private String action;
+  private String object;
 
 
   public Integer getX() {
@@ -38,5 +40,21 @@ public class AnalysisConfigDataDTO {
 
   public void setHeight(Integer height) {
     this.height = height;
+  }
+
+  public String getAction() {
+    return action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
+
+  public String getObject() {
+    return object;
+  }
+
+  public void setObject(String object) {
+    this.object = object;
   }
 }
