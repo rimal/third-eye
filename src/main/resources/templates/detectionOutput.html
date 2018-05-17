@@ -36,14 +36,22 @@
   <!-- Page Content -->
   <div id="page-wrapper" style="margin: 0;">
     <div class="container-fluid">
+      <div class="row bg-title">
+        <!-- .page title -->
+        <div class="col-md-12">
+          <h4 class="page-title">Third Eye
+            <small class="small" style="font-size: 10px;"> Analyse videos to make better decisions </small>
+          </h4>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-12">
           <div class="white-box">
             <div class="row">
-              <div class="alert alert-success alert-dismissable" data-th-if="${message}" data-th-text="${message}">
+              <!--<div class="alert alert-success alert-dismissable" data-th-if="${message}" data-th-text="${message}">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </div>
+              </div>-->
 
               <div class="col-md-12">
                 <!--<h3 class="box-title">Step</h3>-->
@@ -51,17 +59,17 @@
                   <div class="col-md-4 column-step">
                     <div class="step-number">1</div>
                     <div class="step-title">Upload Video File</div>
-                    <div class="step-info"> AVI, MP4</div>
+                    <div class="step-info">Supported Formats: AVI, MP4</div>
                   </div>
                   <div class="col-md-4 column-step">
                     <div class="step-number">2</div>
-                    <div class="step-title"> Area of interest!</div>
-                    <div class="step-info">Sample text</div>
+                    <div class="step-title"> Make Selection</div>
+                    <div class="step-info">Region, Action and Object</div>
                   </div>
                   <div class="col-md-4 column-step active">
                     <div class="step-number">3</div>
-                    <div class="step-title">GET DELIVERY</div>
-                    <div class="step-info">Sample text</div>
+                    <div class="step-title">Output Video</div>
+                    <div class="step-info">With Selected Object and Action</div>
                   </div>
                 </div>
 
@@ -73,7 +81,8 @@
                 </div>
 
                 <div class="col-md-12 p-0 p-t-20">
-                  <a class="btn btn-sm btn-inverse" href="/analysis/config"> <i class="fa fa-backward"></i> Previous </a>
+                  <a class="btn btn-sm btn-inverse" href="/analysis/config"> <i class="fa fa-backward"></i> Previous
+                  </a>
                   <a class="btn btn-sm btn-info" href="/"><i class="fa fa-cloud-upload"></i> Upload new video </a>
                 </div>
               </div>
