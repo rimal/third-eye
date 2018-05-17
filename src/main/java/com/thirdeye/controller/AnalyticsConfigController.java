@@ -45,6 +45,7 @@ public class AnalyticsConfigController {
     logger.info("Mask generation: " + output);
 
     //Call video processing
+    String videoOutput = JavaToLinuxApplication.generateFinalVideo();
     logger.info("video processing called");
 
 
