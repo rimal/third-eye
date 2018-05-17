@@ -26,7 +26,11 @@
   <!-- color CSS -->
   <link href="../static/eliteadmin-material/css/colors/default.css" id="theme" rel="stylesheet"
         data-th-href="@{/eliteadmin-material/css/colors/default.css}"/>
-
+<style type="text/css">
+  .thin-steps .column-step.active.done {
+    background: #00c292;
+  }
+</style>
 </head>
 <body>
 <!-- Preloader -->
@@ -58,7 +62,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="row thin-steps">
-                  <div class="col-md-4 column-step">
+                  <div class="col-md-4 column-step active done">
                     <div class="step-number">1</div>
                     <div class="step-title">Video File</div>
                     <div class="step-info"> AVI, FLV, WMV, MP4, MOV.</div>
@@ -76,7 +80,7 @@
                 </div>
               </div>
               <!-- .Your image -->
-              <div class="col-md-8 p-0">
+              <div class="col-md-8 p-0 p-t-10">
                 <div class="img-container">
                   <img id="image" data-th-src="@{{firstFrameFile}(firstFrameFile=${firstFrameFile})}"
                        src="../static/plugins/images/big/img1.jpg" class="img-responsive" alt="Picture"/>
@@ -85,12 +89,12 @@
               <!-- /.Your image -->
 
               <!-- .Cropping image -->
-              <div class="col-md-4 p-20">
+              <div class="col-md-4 p-10">
                 <form class="form-material form-horizontal" action="/analytics-config/data"
                       data-th-action="@{/analytics-config/data}" method="post">
                   <!-- .pixels of image -->
                   <div class="ribbon-wrapper-reverse">
-                    <div class="ribbon ribbon-right ribbon-default">Area of interest</div>
+                    <div class="ribbon ribbon-left ribbon-default">Area of interest</div>
                     <div class="docs-preview clearfix">
                       <!--Area of interest!-->
                       <div class="img-preview preview-lg"></div>
@@ -164,8 +168,8 @@
                 </form>
               </div>
               <!-- /.Cropping of image -->
-              <div class="col-md-12 p-t-20">
-                <!--<a class="btn btn-sm btn-inverse" data-th-href="@{/}" data-th-text="|< Previous|"> < Previous </a>-->
+              <div class="col-md-12 p-0 p-t-20">
+                <a class="btn btn-sm btn-inverse" href="/"> <i class="fa fa-backward"></i> Previous </a>
               </div>
 
               <!-- Show the cropped image in modal -->
