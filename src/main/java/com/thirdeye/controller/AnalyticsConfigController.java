@@ -5,7 +5,6 @@ import com.thirdeye.dto.AnalysisConfigDataDTO;
 import com.thirdeye.exception.TeNotFoundException;
 import com.thirdeye.service.JavaToLinuxApplication;
 import com.thirdeye.util.json.JsonUtils;
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
