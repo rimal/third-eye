@@ -187,3 +187,11 @@ body {
   background: #fff;
   color: #686868;
 }
+
+.preloader {
+  background-image:url("../../../plugins/images/processing.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 200px;
+  opacity: 0.7;
+}
