@@ -50,7 +50,7 @@ public class HelloRestController {
 
   @RequestMapping("/runCode")
   public String runCode() {
-    return JavaToLinuxApplication.generateFinalVideo();
+    return JavaToLinuxApplication.generateMultipleVideos();
   }
 
   public static void main(String[] args) {

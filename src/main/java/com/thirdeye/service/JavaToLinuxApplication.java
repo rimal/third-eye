@@ -93,7 +93,7 @@ public class JavaToLinuxApplication {
     return "fail";
   }
 
-  public static String generateFinalVideo() {
+  public static String generateMultipleVideos() {
     // ffmpeg -i /tmp/motion-09-51-45.avi -vf 'select=eq(n\,0)' -q:v 1 /tmp/output.jpg
 
     //String[] command = {"python", "videoloop.py"};
@@ -107,7 +107,7 @@ public class JavaToLinuxApplication {
     return "fail";
   }
 
-  public static String generateOutput() {
+  public static String generateFinalOutput() {
     // ffmpeg -i /tmp/motion-09-51-45.avi -vf 'select=eq(n\,0)' -q:v 1 /tmp/output.jpg
 
     //String[] command = {"python", "videoloop.py"};

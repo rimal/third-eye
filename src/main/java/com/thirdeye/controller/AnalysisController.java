@@ -38,15 +38,20 @@ public class AnalysisController {
 
   @RequestMapping(value = "/data", method = RequestMethod.POST)
   public String submitConfigData(AnalysisConfigDataDTO analysisConfigDataDTO, RedirectAttributes redirectAttributes) {
-    logger.info("Analysis config data: " + JsonUtils.getJson(analysisConfigDataDTO));
+    logger.info("Analysis config data::::" + JsonUtils.getJson(analysisConfigDataDTO));
 
     //Generate Mask
     String output = JavaToLinuxApplication.generateMask(analysisConfigDataDTO.getX().toString(), analysisConfigDataDTO.getY().toString(), analysisConfigDataDTO.getWidth().toString(), analysisConfigDataDTO.getHeight().toString());
-    logger.info("Mask generation: " + output);
+    logger.info("Mask generation::::" + output);
 
     //Call video processing
-    String videoOutput = JavaToLinuxApplication.generateFinalVideo();
-    logger.info("video processing called");
+    String videoOutput = JavaToLinuxApplication.generateMultipleVideos();
+    logger.info("video processing called::::" + videoOutput);
+
+    //Call GENERATE FINAL OUTPUT
+    String finalOutput = JavaToLinuxApplication.generateFinalOutput();
+    logger.info("video generateFinalOutput::::" + finalOutput);
+
 
     redirectAttributes.addFlashAttribute("message", "Video processed!");
     return "redirect:/analysis/output";
