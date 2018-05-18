@@ -149,6 +149,12 @@
         data-th-src="@{/plugins/bower_components/dropify/dist/js/dropify.min.js}"></script>
 <script>
   $(document).ready(function () {
+    $("form").submit(function (e) {
+      if ($('input#input-file-now').val()) {
+        $(".preloader").show();
+      }
+    });
+
     // Basic
     $('.dropify').dropify();
 
