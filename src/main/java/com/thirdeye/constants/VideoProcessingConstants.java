@@ -117,7 +117,7 @@ public class VideoProcessingConstants {
       "\n" +
       "; Mark motion ROI\n" +
       "\n" +
-      "mark = False\n" +
+      "mark = True\n" +
       "\n" +
       "; Save frames that are detected\n" +
       "\n" +
